@@ -18,7 +18,10 @@ dados =pd.read_excel('consumo_energia_electrica.xlsx', sheet_name='Data')
 # Selecionar as colunas de interesse (País, Ano e Consumo de Energia)
 dados = dados[['Country Name', '1990 [YR1990]', '2000 [YR2000]']]
 
-# Filtrar os dados para o Portugal
-dados_portugal = dados[dados['Country Name'] == 'Portugal']
+dados=dados.rename(columns={'Country Name':'País'})
+dados=dados.rename(columns={'1990 [YR1990]':'consumo_1990'})
+dados=dados.rename(columns={'2000 [YR2000]':'consumo_2000'})
 
+# Filtrar os dados para o Portugal
+dados_portugal = dados[dados['País'] == 'Portugal']
 print(dados_portugal)
